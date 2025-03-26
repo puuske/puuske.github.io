@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact - Pontus Andersson</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="scripts.js" defer></script>
+  <link rel="stylesheet" href="CSS/style.css" />
+  <script src="Java/scripts.js" defer></script>
   <style>
     .profile-fixed {
       display: flex;
@@ -49,17 +49,23 @@
 
     .contact-details li {
       margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
 
     .contact-details li img {
       width: 24px;
       height: 24px;
-      display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0;
+    }
+
+    .contact-details li div {
+      display: flex;
+      flex-direction: column;
     }
 
     .contact-details li strong {
-      display: block;
       font-size: 10px;
       color: #ffa500;
       margin-bottom: 0.25rem;
@@ -102,29 +108,39 @@
 
   <main>
     <div class="profile-fixed">
-      <img src="P.PNG" alt="Pontus profile picture" class="profile-pic-fixed" />
+      <img src="icons/P.PNG" alt="Pontus profile picture" class="profile-pic-fixed" />
       <div class="info-box">
-        <h2>Contact Me!</h2>
+        <h2 class="typewriter">Contact me!</h2>
         <ul class="contact-details">
           <li>
             <img src="icons/emailIcon.svg" alt="Email Icon">
-            <strong>Email</strong>
-            <a href="mailto:pontus.andersson93@hotmail.com">pontus.andersson93@hotmail.com</a>
+            <div>
+              <a href="mailto:pontus.andersson93@hotmail.com">pontus.andersson93@hotmail.com</a>
+            </div>
           </li>
           <li>
             <img src="icons/linkedinIcon.svg" alt="LinkedIn Icon">
-            <strong>LinkedIn</strong>
-            <a href="https://www.linkedin.com/in/pontus-andersson-28a57615b/" target="_blank">LinkedIn Profile</a>
+            <div>
+              <a href="https://www.linkedin.com/in/pontus-andersson-28a57615b/" target="_blank">LinkedIn Profile</a>
+            </div>
           </li>
           <li>
             <img src="icons/gitIcon.svg" alt="GitHub Icon">
-            <strong>GitHub</strong>
-            <a href="https://github.com/puuske" target="_blank">github.com/puuske</a>
+            <div>
+              <a href="https://github.com/puuske" target="_blank">GitHub Profile</a>
+            </div>
+          </li>
+          <li>
+            <img src="icons/itchIcon.svg" alt="Itch.io Icon">
+            <div>
+              <a href="https://puuske.itch.io" target="_blank">Itch.io Profile</a>
+            </div>
           </li>
           <li>
             <img src="icons/resuméIcon.svg" alt="CV Icon">
-            <strong>CV</strong>
-            <a href="assets/Pontus_Andersson_CV.pdf" target="_blank">Download CV (PDF)</a>
+            <div>
+              <a href="assets/Pontus_Andersson_CV.pdf" target="_blank">Download My Resumé (PDF)</a>
+            </div>
           </li>
         </ul>
       </div>
@@ -141,8 +157,8 @@
     <a href="https://github.com/puuske" target="_blank" aria-label="GitHub">
       <img src="icons/gitIcon.svg" alt="GitHub Icon">
     </a>
-    <a href="https://yourusername.itch.io" target="_blank" aria-label="Itch.io">
-      <img src="icons/itchioIcon.svg" alt="Itch.io Icon">
+    <a href="https://puuske.itch.io" target="_blank" aria-label="Itch.io">
+      <img src="icons/itchIcon.svg" alt="Itch.io Icon">
     </a>
     <a href="assets/Pontus_Andersson_CV.pdf" target="_blank" aria-label="Download CV">
       <img src="icons/resuméIcon.svg" alt="CV Icon">
