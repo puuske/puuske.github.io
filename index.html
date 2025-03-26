@@ -1,1 +1,112 @@
-<h1>HELLO WORLD</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pontus Andersson - Game Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="scripts.js" defer></script>
+  <style>
+    .profile-fixed {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 120px auto 0;
+      padding: 2rem;
+    }
+
+    .profile-pic-fixed {
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ffa500;
+      image-rendering: pixelated;
+      position: relative;
+      left: -20px;
+    }
+
+    .info-box {
+      background-color: #1e1e1e;
+      border: 2px solid #ffa500;
+      padding: 1.5rem;
+      flex: 1;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    .skills-list li {
+      background-color: #1e1e1e;
+      border: 1px solid #ffa500;
+      padding: 0.5rem;
+      text-align: center;
+      color: #ffa500;
+      text-shadow: 1px 1px #000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <h1 class="logo">Pontus Andersson</h1>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="profile-fixed">
+      <img src="P.PNG" alt="Pontus profile picture" class="profile-pic-fixed" />
+      <div class="info-box">
+        <h2 class="typewriter">Stop searching, I'm your guy!</h2>
+        <p>
+          I’m a game developer passionate about creating fun, immersive, and meaningful game experiences...
+        </p>
+        <h3>Skills</h3>
+        <ul class="skills-list">
+          <li>Unity</li>
+          <li>Unreal Engine</li>
+          <li>C#</li>
+          <li>C++</li>
+          <li>3D Modeling</li>
+          <li>AI</li>
+          <li>PCG</li>
+          <li>Object Oriented Programming</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <div class="fixed-contact-icons">
+    <a href="mailto:youremail@example.com" target="_blank" aria-label="Email">
+      <img src="icons/emailIcon.svg" alt="Email Icon">
+    </a>
+    <a href="https://www.linkedin.com/in/pontus-andersson-28a57615b/" target="_blank" aria-label="LinkedIn">
+      <img src="icons/linkedinIcon.svg" alt="LinkedIn Icon">
+    </a>
+    <a href="https://github.com/puuske" target="_blank" aria-label="GitHub">
+      <img src="icons/gitIcon.svg" alt="GitHub Icon">
+    </a>
+    <a href="https://yourusername.itch.io" target="_blank" aria-label="Itch.io">
+      <img src="icons/itchioIcon.svg" alt="Itch.io Icon">
+    </a>
+    <a href="assets/Pontus_Andersson_CV.pdf" target="_blank" aria-label="Download CV">
+      <img src="icons/resuméIcon.svg" alt="CV Icon">
+    </a>
+  </div>
+</body>
+</html>
