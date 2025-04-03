@@ -26,24 +26,30 @@
     <div class="projects-grid">
       <div class="project-card fade-in">
         <h3>Chained 2 Violence</h3>
-        <img src="Media/C2V_Logo.png" alt="Project 1">
-        <p>Short description of the project.</p>
-        <a href="#" class="learn-more">Learn More</a>
+        <img src="Media/C2V_gp.png" alt="Chained 2 Violence">
+        <p>Bound by an unbreakable chain, you and a partner must survive waves of enemies in evolving arenas.</p>
+        <h3>Coming to Steam!</h3>
+        <a href="#" class="learn-more" data-modal="project-modal">Learn More</a>
       </div>
       <div class="project-card fade-in">
-        <img src="assets/project-placeholder.jpg" alt="Project 2">
-        <h3>Project Title</h3>
-        <p>Short description of the project.</p>
-        <a href="#">Learn More</a>
+        <h3>Echo</h3>
+        <img src="Media/Echo.png" alt="BatManDuo">
+        <p>Use your voice to help your Bat companion reveal the darkness. One player makes sounds, the other sees the echoes — together, you must navigate the cave and avoid the lurking spiders.</p>
+        <a href="#" class="learn-more" data-modal="echo-modal">Learn More</a>
       </div>
-      <!-- Add more cards as needed -->
+      <div class="project-card fade-in">
+        <h3>Project Escape</h3>
+        <img src="Media/PE_Poster.png" alt="Project Escape">
+        <p>Avoid the monster that lurks in the area, escape is your only option...</p>
+        <a href="#" class="learn-more" data-modal="escape-modal">Learn More</a>
+      </div>
     </div>
   </main>
 
-  <!-- Pop-up C2V -->
+<!-- Pop-up C2V -->
 <div id="project-modal" class="modal">
   <div class="modal-content">
-    <span class="close-button">&times;</span>
+    <span class="close-button" data-modal="project-modal">&times;</span>
     <h3>Chained 2 Violence</h3>
 
     <!-- Description -->
@@ -58,17 +64,81 @@
 
     <!-- Your Role -->
     <p><strong>My Role:</strong><br>
-      I was the lead systems designer and gameplay programmer. I developed the enemy AI behaviors, implemented the chaining mechanic, and helped shape the game loop. I also contributed to playtesting and balancing.
-    </p>
+      I was responsible for the procedural content generation (PCG) elements of the arena map. Between each wave of enemies, the environment dynamically changes — new objects are scattered around the map to reshape the battlefield. I designed and implemented an object spawning system that ensures a balanced and visually pleasing distribution of these elements, avoiding overlaps and preventing empty areas. This system was created to constantly challenge the players, encouraging them to adapt their strategies to the ever-changing environment.
+      In addition to the procedural elements, I also developed traps that appear throughout the arena. These traps were designed to either hinder and damage the players or, if used cleverly, give them an advantage against their enemies.
+      Beyond my main responsibilities, I regularly assisted the team with various coding tasks and fixes whenever needed.    </p>
 
     <br><br>
 
+    <div class="gif-showcase">
+      <img src="Media/C2V_gif1.gif" alt="Gameplay Gif 1">
+      <img src="Media/C2V_gif2.gif" alt="Gameplay Gif 2">
+    </div>
+
     <!-- QR Code -->
     <p style="text-align: center; margin: 0 auto; max-width: 500px;">
-      <strong>Coming to Steam! Wishlist NOW!</strong></p>
-    
+      <strong>Coming to Steam!</strong>
+    </p>
     <img src="Media/Wishlist_C2V.png" alt="Steam Wishlist QR Code" class="qr-code" />
   
+  </div>
+</div>
+
+<!-- Pop-up Project Escape -->
+<div id="escape-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" data-modal="escape-modal">&times;</span>
+    <h3>Project Escape</h3>
+
+    <!-- Description -->
+    <p><strong>About the game:</strong><br>
+      Project Escape is a horror game where your only goal is to escape! A terrifying monster lurks in the dark, using its eyes and ears to hunt you down. Every sound you make will reveal your position — running and jumping will make even more noise. If the monster sees you, you better run! Your objective is to collect five scattered keys around the map and escape alive.
+    </p>
+
+    <!-- Clip -->
+    <video controls class="project-trailer" id="escape-trailer">
+      <source src="Media/PE_gp.mp4" type="video/mp4">
+    </video>
+
+    <!-- Your Role -->
+    <p><strong>My Role:</strong><br>
+      I was responsible for creating the map. Using an asset pack from Unity Store, I built the environment, including buildings, crates, walkways, and lighting to support the game's dark and tense atmosphere.
+    </p>
+
+    <!-- Image Showcase -->
+    <div class="img-showcase">
+      <img src="Media/PE_img1.png" alt="Gameplay Screenshot 1">
+      <img src="Media/PE_img2.png" alt="Gameplay Screenshot 2">
+    </div>
+  </div>
+</div>
+
+<!-- Pop-up Echo -->
+<div id="echo-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" data-modal="echo-modal">&times;</span>
+    <h3>Echo</h3>
+
+    <!-- Description -->
+    <p><strong>About the game:</strong><br>
+      Echo is a co-op game where one player makes sounds in real life using a microphone, and the other player can "see" these sounds as echoes in the dark cave. Together, you must navigate the darkness, avoid lurking monsters, and escape safely.
+    </p>
+
+    <!-- Clip -->
+    <video controls class="project-trailer">
+      <source src="Media/BD_clip.mp4" type="video/mp4">
+    </video>
+
+    <!-- Your Role -->
+    <p><strong>My Role:</strong><br>
+      For this project, I was responsible for designing and implementing the behavior tree for the spiders that the player must avoid. The spiders patrol the cave, react to sounds made by the player, and will begin hunting when they detect movement or noise. If they get close enough, they will attack. I utilized an existing spider asset and set up the animation transitions based on the spider's current behavior state. Additionally, I worked with the sound system to integrate audio cues that trigger the spider's reactions, ensuring that the enemies responded dynamically to the player's actions.
+    </p>
+
+    <!-- Image Showcase -->
+    <div class="img-showcase">
+      <img src="Media/Echo_img1.png" alt="Gameplay Screenshot 1">
+    </div>
+
   </div>
 </div>
 

@@ -20,38 +20,50 @@ faders.forEach(fader => {
   appearOnScroll.observe(fader);
 });
 
+/* Pop-up Projects */
 document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("project-modal");
   const openBtns = document.querySelectorAll(".learn-more");
-  const closeBtn = document.querySelector(".close-button");
-  const trailer = document.querySelector(".project-trailer"); // ← add this line
+  const modals = document.querySelectorAll(".modal");
+  const closeBtns = document.querySelectorAll(".close-button");
 
-  if (modal) {
-    openBtns.forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        modal.style.display = "block";
-      });
+  openBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const modalId = btn.getAttribute("data-modal");
+      const modal = document.getElementById(modalId);
+      if (modal) modal.style.display = "block";
     });
+  });
 
-    if (closeBtn) {
-      closeBtn.addEventListener("click", () => {
+  closeBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const modalId = btn.getAttribute("data-modal");
+      const modal = document.getElementById(modalId);
+      if (modal) {
         modal.style.display = "none";
-        if (trailer) {
-          trailer.pause();
-          trailer.currentTime = 0;
-        }
-      });
-    }
 
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
-        if (trailer) {
-          trailer.pause();
-          trailer.currentTime = 0;
+        // Pause video if exists
+        const video = modal.querySelector("video");
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
         }
       }
     });
-  }
+  });
+
+  window.addEventListener("click", (e) => {
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+
+        // Pause video if exists
+        const video = modal.querySelector("video");
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+    });
+  });
 });

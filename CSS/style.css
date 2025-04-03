@@ -334,6 +334,34 @@ footer {
   border: 2px solid #ffa500;
 }
 
+/* Pop-up gifs */
+.gif-showcase {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.gif-showcase img {
+  width: 45%;
+  border: 2px solid #ffa500;
+}
+
+/* Pop-up img */
+.img-showcase {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.img-showcase img {
+  width: 45%;
+  border: 2px solid #ffa500;
+}
+
 /* Typewriter */
 @keyframes typing {
   from { width: 0 }
