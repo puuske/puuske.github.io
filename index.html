@@ -1,4 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pontus Andersson - Game Developer</title>
+  <link rel="stylesheet" href="CSS/style.css" />
+  <script src="Java/scripts.js" defer></script>
+  <style>
+    .profile-fixed {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 120px auto 0;
+      padding: 2rem;
+    }
 
+    .profile-pic-fixed {
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ffa500;
+      image-rendering: pixelated;
+      position: relative;
+      left: -20px;
+    }
+
+    .info-box {
+      background-color: #1e1e1e;
+      border: 2px solid #ffa500;
+      padding: 1.5rem;
+      flex: 1;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    .skills-list li {
+      background-color: #1e1e1e;
+      border: 1px solid #ffa500;
+      padding: 0.5rem;
+      text-align: center;
+      color: #ffa500;
+      text-shadow: 1px 1px #000;
+      word-wrap: break-word;
+      white-space: normal;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <h1 class="logo">Pontus Andersson</h1>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="profile-fixed">
+      <img src="Media/P.PNG" alt="Pontus profile picture" class="profile-pic-fixed" />
+      <div class="info-box">
+        <h2 class="typewriter">Stop searching, I'm your guy!</h2>
+        <p>
+          I’m an aspiring Game Developer soon to graduate from Malmö University, with a passion for creating immersive and meaningful game experiences. Based in Stångby, I balance my time between coding, playing football, spending time with my partner, our dog, and friends.
+
+          My main strengths lie in gameplay programming and system design, with solid experience in Unity, C#, and C++. I’m also skilled in object-oriented programming and enjoy building smart, efficient systems that bring games to life. Whether I’m developing mechanics, solving tricky bugs, or designing engaging gameplay, I’m always driven by a love for game design and storytelling.
+          
+          Let’s build something awesome together.
+        </p>
+        <h3>Skills</h3>
+        <ul class="skills-list">
+          <li>Unity</li>
+          <li>C#</li>
+          <li>C++</li>
+          <li>AI</li>
+          <li>3D Modeling</li>
+          <li>Unreal Engine</li>
+          <li>PCG</li>
+          <li>Object Oriented Programming</li>
+        </ul>
+        
+      </div>
+    </div>
+
+    <!--Project Showcase-->
+    <section class="project-showcase">
+      <h3>Projects that I have worked on</h3>
+      <div class="project-grid">
+        <div class="project-card">
+          <a href="projects.html?project=c2v">
+            <h4>Chained 2 Violence</h4>
+            <p>Bound by a chain, survive waves of enemies.</p>
+          </a>
+        </div>
+        <div class="project-card">
+          <a href="projects.html?project=escape">
+            <h4>Project Escape</h4>
+            <p>Collect keys and avoid the lurking monster.</p>
+          </a>
+        </div>
+        <div class="project-card">
+          <a href="projects.html?project=echo">
+            <h4>Echo</h4>
+            <p>Use echolocation and teamwork to escape the cave.</p>
+          </a>
+        </div>
+        <div class="project-card">
+          <h4>Project 4</h4>
+          <p>Short description...</p>
+        </div>
+        <div class="project-card">
+          <h4>Project 5</h4>
+          <p>Short description...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Icons -->
+  <div class="fixed-contact-icons">
+    <a href="mailto:youremail@example.com" target="_blank" aria-label="Email">
+      <img src="Media/emailIcon.svg" alt="Email Icon">
+    </a>
+    <a href="https://www.linkedin.com/in/pontus-andersson-28a57615b/" target="_blank" aria-label="LinkedIn">
+      <img src="Media/linkedinIcon.svg" alt="LinkedIn Icon">
+    </a>
+    <a href="https://github.com/puuske" target="_blank" aria-label="GitHub">
+      <img src="Media/gitIcon.svg" alt="GitHub Icon">
+    </a>
+    <a href="https://puuske.itch.io" target="_blank" aria-label="Itch.io">
+      <img src="Media/itchIcon.svg" alt="Itch.io Icon">
+    </a>
+    <a href="assets/Pontus_Andersson_CV.pdf" target="_blank" aria-label="Download CV">
+      <img src="Media/resuméIcon.svg" alt="CV Icon">
+    </a>
+  </div>
+</body>
 </html>
