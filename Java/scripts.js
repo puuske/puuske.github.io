@@ -26,44 +26,91 @@ document.addEventListener("DOMContentLoaded", () => {
   const modals = document.querySelectorAll(".modal");
   const closeBtns = document.querySelectorAll(".close-button");
 
+  // Open modal with animation
   openBtns.forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       const modalId = btn.getAttribute("data-modal");
       const modal = document.getElementById(modalId);
-      if (modal) modal.style.display = "block";
+      if (modal) {
+        modal.style.display = "block";
+        setTimeout(() => {
+          modal.classList.add("show");
+        }, 10);
+      }
     });
   });
 
+  // Close modal with animation
   closeBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       const modalId = btn.getAttribute("data-modal");
       const modal = document.getElementById(modalId);
       if (modal) {
-        modal.style.display = "none";
+        modal.classList.remove("show");
+        setTimeout(() => {
+          modal.style.display = "none";
 
-        // Pause video if exists
-        const video = modal.querySelector("video");
-        if (video) {
-          video.pause();
-          video.currentTime = 0;
-        }
+          const video = modal.querySelector("video");
+          if (video) {
+            video.pause();
+            video.currentTime = 0;
+          }
+        }, 200);
       }
     });
   });
 
+  // Close modal on outside click
   window.addEventListener("click", (e) => {
     modals.forEach(modal => {
       if (e.target === modal) {
-        modal.style.display = "none";
+        modal.classList.remove("show");
+        setTimeout(() => {
+          modal.style.display = "none";
 
-        // Pause video if exists
-        const video = modal.querySelector("video");
-        if (video) {
-          video.pause();
-          video.currentTime = 0;
-        }
+          const video = modal.querySelector("video");
+          if (video) {
+            video.pause();
+            video.currentTime = 0;
+          }
+        }, 200);
       }
     });
   });
+
+  // Automatically open modal if ?project= is in the URL
+  const params = new URLSearchParams(window.location.search);
+  const project = params.get("project");
+
+  if (project) {
+    let modalId = null;
+    switch (project.toLowerCase()) {
+      case "c2v":
+        modalId = "project-modal";
+        break;
+      case "escape":
+        modalId = "escape-modal";
+        break;
+      case "echo":
+        modalId = "echo-modal";
+        break;
+    }
+
+    if (modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = "block";
+        setTimeout(() => {
+          modal.classList.add("show");
+        }, 10);
+      }
+    }
+
+    // Remove query param from URL
+    if (history.replaceState) {
+      const newUrl = window.location.origin + window.location.pathname;
+      history.replaceState({}, document.title, newUrl);
+    }
+  }
 });

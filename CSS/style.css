@@ -362,6 +362,18 @@ footer {
   border: 2px solid #ffa500;
 }
 
+/* === Modal Fade Animation === */
+.modal-content {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Typewriter */
 @keyframes typing {
   from { width: 0 }
