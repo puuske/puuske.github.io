@@ -1,116 +1,66 @@
-// Smooth scroll handled by CSS (scroll-behavior: smooth)
-
-// Scroll animations using IntersectionObserver
-const faders = document.querySelectorAll('.fade-in');
-
-const appearOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px"
-};
-
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add('appear');
-    observer.unobserve(entry.target);
-  });
-}, appearOptions);
-
-faders.forEach(fader => {
-  appearOnScroll.observe(fader);
-});
-
-/* Pop-up Projects */
 document.addEventListener("DOMContentLoaded", () => {
-  const openBtns = document.querySelectorAll(".learn-more");
-  const modals = document.querySelectorAll(".modal");
-  const closeBtns = document.querySelectorAll(".close-button");
+  const buttons = document.querySelectorAll(".buttons-panel button");
+  const contentArea = document.getElementById("crt-content");
 
-  // Open modal with animation
-  openBtns.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const modalId = btn.getAttribute("data-modal");
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.style.display = "block";
-        setTimeout(() => {
-          modal.classList.add("show");
-        }, 10);
-      }
-    });
-  });
+  buttons.forEach(button => {
+    const section = button.dataset.section;
 
-  // Close modal with animation
-  closeBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const modalId = btn.getAttribute("data-modal");
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.classList.remove("show");
-        setTimeout(() => {
-          modal.style.display = "none";
-
-          const video = modal.querySelector("video");
-          if (video) {
-            video.pause();
-            video.currentTime = 0;
-          }
-        }, 200);
-      }
-    });
-  });
-
-  // Close modal on outside click
-  window.addEventListener("click", (e) => {
-    modals.forEach(modal => {
-      if (e.target === modal) {
-        modal.classList.remove("show");
-        setTimeout(() => {
-          modal.style.display = "none";
-
-          const video = modal.querySelector("video");
-          if (video) {
-            video.pause();
-            video.currentTime = 0;
-          }
-        }, 200);
-      }
-    });
-  });
-
-  // Automatically open modal if ?project= is in the URL
-  const params = new URLSearchParams(window.location.search);
-  const project = params.get("project");
-
-  if (project) {
-    let modalId = null;
-    switch (project.toLowerCase()) {
-      case "c2v":
-        modalId = "project-modal";
-        break;
-      case "escape":
-        modalId = "escape-modal";
-        break;
-      case "echo":
-        modalId = "echo-modal";
-        break;
+    // Special logic for ESC button
+    if (button.id === "esc-button") {
+      button.addEventListener("click", () => {
+        const escMessage = "Hold on,\nYou forgot to contact me!";
+        contentArea.innerHTML = `<div class="typewriter-text" data-content="${escMessage}"></div>`;
+        const newTypeTarget = document.querySelector('.typewriter-text');
+        if (newTypeTarget) {
+          typeText(newTypeTarget, escMessage);
+        }
+      });
     }
 
-    if (modalId) {
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.style.display = "block";
-        setTimeout(() => {
-          modal.classList.add("show");
-        }, 10);
-      }
+    // Normal content buttons
+    else if (section) {
+      button.addEventListener("click", () => {
+        fetch(`${section}.html`)
+          .then(res => res.text())
+          .then(html => {
+            const temp = document.createElement("div");
+            temp.innerHTML = html;
+            const mainContent = temp.querySelector("main") || temp.body || temp;
+            const text = mainContent.innerText.trim();
+            contentArea.innerHTML = `<div class="typewriter-text" data-content="${text}"></div>`;
+            const newTypeTarget = document.querySelector('.typewriter-text');
+            if (newTypeTarget) {
+              typeText(newTypeTarget, text);
+            }
+          })
+          .catch(err => {
+            contentArea.innerHTML = `<p style="color:red;">Error loading content.</p>`;
+            console.error(err);
+          });
+      });
     }
+  });
 
-    // Remove query param from URL
-    if (history.replaceState) {
-      const newUrl = window.location.origin + window.location.pathname;
-      history.replaceState({}, document.title, newUrl);
-    }
+  // On first load, start typing the welcome message
+  const typeTarget = document.querySelector('.typewriter-text');
+  if (typeTarget) {
+    const fullText = typeTarget.dataset.content;
+    typeText(typeTarget, fullText);
   }
 });
+
+function typeText(element, text, delay = 50) {
+  element.innerHTML = '';
+  let index = 0;
+
+  function type() {
+    if (index < text.length) {
+      const char = text[index];
+      element.innerHTML += char === '\n' ? '<br>' : char;
+      index++;
+      setTimeout(type, delay);
+    }
+  }
+
+  type();
+}
